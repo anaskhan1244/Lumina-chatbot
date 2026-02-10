@@ -230,6 +230,9 @@ def ask_stream():
                                 if content: yield f"data: {json.dumps({'content': content})}\n\n"
                             except: continue
 
+            else:
+                yield f"data: {json.dumps({'content': '❌ System Error: No valid API Key found. Please add your OPENROUTER_API_KEY to Render Environment Variables.'})}\n\n"
+        
         return app.response_class(generate(), mimetype='text/event-stream')
 
     except Exception as e:
