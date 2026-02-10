@@ -1,0 +1,281 @@
+/* Lumina AI - Premium Design System */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Dancing+Script:wght@700&display=swap');
+
+:root {
+    --primary: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.4);
+    --secondary: #a855f7;
+    --bg-light: #f8fafc;
+    --bg-dark: #020617;
+    --glass-white: rgba(255, 255, 255, 0.9);
+    --glass-dark: rgba(15, 23, 42, 0.8);
+    --border-light: rgba(226, 232, 240, 1);
+    --border-dark: rgba(30, 41, 59, 0.5);
+    --gold: linear-gradient(135deg, #020617 0%, #bf953f 45%, #fcf6ba 55%, #aa771c 100%);
+}
+
+/* Calligraphy Developer Signature */
+.shaz-credit-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.developer-tag {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1e293b;
+    opacity: 0.8;
+}
+
+.dark .developer-tag {
+    color: #94a3b8;
+}
+
+.shaz-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, #020617 0%, #d4af37 50%, #020617 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    line-height: 1;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+}
+
+.dark .shaz-signature {
+    background: linear-gradient(135deg, #f1f5f9 0%, #d4af37 50%, #f1f5f9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(0 2px 10px rgba(255, 215, 0, 0.3));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: var(--bg-light);
+    color: #1e293b;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 100vh;
+    overflow: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+body.dark {
+    --primary: #818cf8; /* Neon Indigo */
+    --secondary: #c084fc; /* Electric Purple */
+    --primary-glow: rgba(129, 140, 248, 0.4);
+    background: var(--bg-dark);
+    color: #f1f5f9;
+}
+
+/* Calligraphy Logo Style */
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.8rem;
+    letter-spacing: -1px;
+}
+
+.dark .logo-text {
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Premium Background Mesh */
+.mesh-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.15;
+    background: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+}
+
+.dark .mesh-gradient {
+    opacity: 0.2;
+    background: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.2) 0px, transparent 50%);
+}
+
+/* Background Watermark (Official Branding Style) */
+.chat-watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    height: 85vw;
+    max-width: 800px;
+    max-height: 800px;
+    background-image: url('../images/logo-2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.25; 
+    pointer-events: none;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.dark .chat-watermark {
+    opacity: 0.18;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* Glass Cards */
+.glass-container {
+    background: var(--glass-white);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-light);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.dark .glass-container {
+    background: var(--glass-dark);
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.fade-in { animation: fadeInUp 0.6s ease-out forwards; }
+.floating { animation: float 4s ease-in-out infinite; }
+
+/* Message Bubbles */
+.user-bubble {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: 18px 18px 2px 18px;
+    padding: 12px 18px;
+    box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.bot-bubble {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 18px 18px 18px 2px;
+    padding: 12px 18px;
+}
+
+.dark .bot-bubble {
+    background: #1e293b;
+    border: 1px solid var(--border-dark);
+    color: #f1f5f9;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.2);
+    border-radius: 10px;
+}
+
+/* Improve small text and placeholder visibility */
+.persona-card span {
+    font-size: 0.8rem; /* slightly larger than 10px */
+}
+
+textarea::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+}
+
+.dark textarea::placeholder {
+    color: #9ca3af;
+}
+
+/* Ensure bot messages remain high-contrast in light mode */
+.bot-bubble {
+    color: #0f172a;
+}
+
+/* Input Area Styling */
+.input-wrapper {
+    position: relative;
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+.dark .input-wrapper {
+    background: #0f172a;
+    border-color: var(--border-dark);
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+/* Persona Chips */
+.persona-chip {
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.persona-chip.active {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    color: var(--primary);
+    border-color: var(--border-light);
+}
+
+.dark .persona-chip.active {
+    background: #1e293b;
+    color: white;
+    border-color: var(--border-dark);
+}
+
+/* Hero Text Visibility in Dark Mode */
+.dark .welcome-container h2 {
+    background: linear-gradient(to right, #ffffff, #818cf8) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
+.dark .welcome-container p {
+    color: #cbd5e1 !important; /* Lighter slate for better readability */
+}

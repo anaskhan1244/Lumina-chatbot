@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.replit
+replit.nix
+uv.lock
+logo-2.png
+# Leave logo-2.png if user wants it, but it's 7MB. Let's keep it for now as it's branding.
+# Actually, 7MB is fine for GitHub.
