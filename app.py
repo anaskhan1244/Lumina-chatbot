@@ -1,11 +1,12 @@
 import os
 import json
 import logging
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, Response
 from dotenv import load_dotenv
 import requests
 from io import BytesIO
 import base64
+from whitenoise import WhiteNoise
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -16,6 +17,7 @@ load_dotenv(override=True)
 
 # Initialize Flask app
 app = Flask(__name__)
+app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/', prefix='static/')
 app.secret_key = os.environ.get("SESSION_SECRET", "shaz-default-secret")
 
 # ---------------------------------------------------------
