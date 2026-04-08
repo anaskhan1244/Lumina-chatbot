@@ -13,12 +13,21 @@ function ensureMarkedConfigured() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    function escapeHtml(text) {
+        return text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
     function renderMarkdown(text) {
         ensureMarkedConfigured();
         if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
             return marked.parse(text);
         }
-        return text;
+        return escapeHtml(text).replace(/\n/g, '<br>');
     }
 
     // DOM Elements
