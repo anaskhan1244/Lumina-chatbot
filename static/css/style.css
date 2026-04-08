@@ -1,5 +1,5 @@
 /* Lumina AI - Premium Design System */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,700&family=Plus+Jakarta+Sans:wght@400;500;600&family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
 
 :root {
     --primary: #6366f1;
@@ -12,48 +12,6 @@
     --border-light: rgba(226, 232, 240, 1);
     --border-dark: rgba(30, 41, 59, 0.5);
     --gold: linear-gradient(135deg, #020617 0%, #bf953f 45%, #fcf6ba 55%, #aa771c 100%);
-}
-
-/* Calligraphy Developer Signature */
-.shaz-credit-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.developer-tag {
-    font-size: 10px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #1e293b;
-    opacity: 0.8;
-}
-
-.dark .developer-tag {
-    color: #94a3b8;
-}
-
-.shaz-signature {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.6rem;
-    background: linear-gradient(135deg, #020617 0%, #d4af37 50%, #020617 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-    line-height: 1;
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
-}
-
-.dark .shaz-signature {
-    background: linear-gradient(135deg, #f1f5f9 0%, #d4af37 50%, #f1f5f9 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    filter: drop-shadow(0 2px 10px rgba(255, 215, 0, 0.3));
 }
 
 * {
@@ -117,31 +75,6 @@ body.dark {
     background: 
         radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.2) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.2) 0px, transparent 50%);
-}
-
-/* Background Watermark (Official Branding Style) */
-.chat-watermark {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85vw;
-    height: 85vw;
-    max-width: 800px;
-    max-height: 800px;
-    background-image: url('../images/logo-2.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    opacity: 0.25; 
-    pointer-events: none;
-    z-index: -1;
-    transition: all 0.4s ease;
-}
-
-.dark .chat-watermark {
-    opacity: 0.18;
-    filter: brightness(0.9) contrast(1.1);
 }
 
 /* Glass Cards */

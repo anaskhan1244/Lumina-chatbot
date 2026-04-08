@@ -1,6 +1,5 @@
 <div align="center">
-  <img src="logo1.png" alt="Lumina Logo" width="200"/>
-  
+
   # Lumina - AI-Powered Educational Assistant Platform
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -179,7 +178,7 @@
 - ✅ **Copy & Retry Functions**: User-friendly message management
 
 ### Advanced Features
-- 🎨 **Premium UI/UX**: Calligraphy logo, mesh gradients, floating animations
+- 🎨 **Premium UI/UX**: Mesh gradients, floating animations
 - 🔄 **Context-Aware Suggestions**: Follow-up question chips for continued learning
 - 📊 **API Status Indicators**: Real-time monitoring of service availability
 - ⚡ **Optimized Token Usage**: 60-word limit for faster, concise responses
