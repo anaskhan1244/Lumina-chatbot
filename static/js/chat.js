@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Prevent markdown image rendering so legacy/logo PNG content never appears in chat bubbles
+    const markdownRenderer = new marked.Renderer();
+    markdownRenderer.image = () => '';
+    marked.setOptions({ breaks: true, gfm: true, renderer: markdownRenderer });
+
     // DOM Elements
     const chatForm = document.getElementById('chat-form');
     const userInput = document.getElementById('user-input');
@@ -198,7 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function createBotBubbleInstance() {
         const clone = botMessageTemplate.content.cloneNode(true);
         const container = clone.querySelector('.bot-content');
-        marked.setOptions({ breaks: true, gfm: true });
         
         // Setup copy button for the new instance
         const copyBtn = clone.querySelector('.copy-btn');
@@ -225,8 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function appendBotMessage(message) {
         const clone = botMessageTemplate.content.cloneNode(true);
         const container = clone.querySelector('.bot-content');
-        
-        marked.setOptions({ breaks: true, gfm: true });
+
         container.innerHTML = marked.parse(message);
         
         // Copy functionality

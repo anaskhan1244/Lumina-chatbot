@@ -4,5 +4,3 @@ __pycache__/
 .replit
 replit.nix
 uv.lock
-# Branding images are now allowed
-# logo-2.png removed from ignore
