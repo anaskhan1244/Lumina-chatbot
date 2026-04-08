@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Prevent markdown image rendering so legacy/logo PNG content never appears in chat bubbles
-    const markdownRenderer = new marked.Renderer();
-    markdownRenderer.image = () => '';
-    marked.setOptions({ breaks: true, gfm: true, renderer: markdownRenderer });
+// Prevent markdown image rendering so legacy/logo PNG content never appears in chat bubbles
+const markdownRenderer = new marked.Renderer();
+markdownRenderer.image = () => '';
+marked.setOptions({ breaks: true, gfm: true, renderer: markdownRenderer });
 
+document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const chatForm = document.getElementById('chat-form');
     const userInput = document.getElementById('user-input');
