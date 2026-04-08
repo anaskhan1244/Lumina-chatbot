@@ -21,6 +21,3 @@ This guide will help you host your **Lumina Chatbot** for free.
 ## Important Notes:
 - **Free Tier**: On Render, the site "goes to sleep" after 15 minutes of inactivity. The first person to visit it after that will wait ~30 seconds for it to wake up.
 - **Port**: The app is configured to use Port `5000` (Render/Local) or `7860` (Hugging Face).
-
----
-*Developed by Shaz*
