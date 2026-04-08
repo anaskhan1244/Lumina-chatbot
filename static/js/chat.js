@@ -1,9 +1,18 @@
 // Prevent markdown image rendering so legacy/logo PNG content never appears in chat bubbles
-const markdownRenderer = new marked.Renderer();
-markdownRenderer.image = () => '';
-marked.setOptions({ breaks: true, gfm: true, renderer: markdownRenderer });
+if (typeof marked !== 'undefined' && typeof marked.Renderer === 'function') {
+    const markdownRenderer = new marked.Renderer();
+    markdownRenderer.image = () => '';
+    marked.setOptions({ breaks: true, gfm: true, renderer: markdownRenderer });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
+    function renderMarkdown(text) {
+        if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
+            return marked.parse(text);
+        }
+        return text;
+    }
+
     // DOM Elements
     const chatForm = document.getElementById('chat-form');
     const userInput = document.getElementById('user-input');
@@ -169,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (data.content) {
                                 botText += data.content;
                                 // Update UI with markdown
-                                contentContainer.innerHTML = marked.parse(botText);
+                                contentContainer.innerHTML = renderMarkdown(botText);
                                 contentContainer.querySelectorAll('pre code').forEach(hljs.highlightElement);
                                 scrollToBottom();
                             }
@@ -230,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const clone = botMessageTemplate.content.cloneNode(true);
         const container = clone.querySelector('.bot-content');
 
-        container.innerHTML = marked.parse(message);
+        container.innerHTML = renderMarkdown(message);
         
         // Copy functionality
         clone.querySelector('.copy-btn').addEventListener('click', (e) => {
