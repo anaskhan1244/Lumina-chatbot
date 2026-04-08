@@ -1,12 +1,20 @@
 // Prevent markdown image rendering so legacy/logo PNG content never appears in chat bubbles
-if (typeof marked !== 'undefined' && typeof marked.Renderer === 'function') {
-    const markdownRenderer = new marked.Renderer();
-    markdownRenderer.image = () => '';
-    marked.setOptions({ breaks: true, gfm: true, renderer: markdownRenderer });
+let isMarkedConfigured = false;
+function ensureMarkedConfigured() {
+    if (isMarkedConfigured || typeof marked === 'undefined') return;
+    try {
+        const markdownRenderer = new marked.Renderer();
+        markdownRenderer.image = () => '';
+        marked.setOptions({ breaks: true, gfm: true, renderer: markdownRenderer });
+        isMarkedConfigured = true;
+    } catch (e) {
+        console.error('Marked setup failed:', e);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     function renderMarkdown(text) {
+        ensureMarkedConfigured();
         if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
             return marked.parse(text);
         }
